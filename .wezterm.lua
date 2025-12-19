@@ -15,6 +15,8 @@ config.leader = {
 -- Key bindings
 -- =========================
 config.keys = {
+  { key = "c", mods = "CTRL", action = act.CopyTo "Clipboard" },
+  { key = "v", mods = "CTRL", action = act.PasteFrom "Clipboard" },
   -- Text editing passthrough
   { key = "Backspace", mods = "CTRL", action = act.SendKey { key = "w", mods = "CTRL" } },
   { key = "Delete",    mods = "CTRL", action = act.SendKey { key = "d", mods = "ALT" } },
@@ -56,5 +58,12 @@ config.color_scheme = "Gruvbox Dark (Gogh)"
 config.default_gui_startup_args = { "connect", "SSHMUX:hi20" }
 config.enable_wayland = true
 config.xcursor_theme = "default"
+-- Enable OSC 52 clipboard support
+config.term = "wezterm"
+config.unix_domains = {
+  {
+    name = "SSHMUX:hi20",
+  }
+}
 
 return config
